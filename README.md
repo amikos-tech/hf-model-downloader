@@ -22,7 +22,7 @@ version: '3.8'
 services:
   hf-model-downloader:
     image: amikos/hf-model-downloader
-    args: sentence-transformers/all-MiniLM-L6-v2
+    command: sentence-transformers/all-MiniLM-L6-v2
     volumes:
       - ./models:/models
     environment:
