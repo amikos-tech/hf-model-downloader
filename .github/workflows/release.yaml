@@ -28,6 +28,10 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: ${{ env.IMAGE_NAME }}
+          labels: |
+            org.opencontainers.image.description={{.README}}
+            org.opencontainers.image.url=https://github.com/${{ github.repository }}
+          readme-filepath: ./README.md
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
       - name: Set up Docker Buildx

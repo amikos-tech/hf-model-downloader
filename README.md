@@ -15,6 +15,20 @@ export HF_TOKEN="your_huggingface_token"
 docker run -it --rm -e HF_TOKEN="$HF_TOKEN" -v $(PWD):/models amikos/hf-model-downloader  sentence-transformers/all-MiniLM-L6-v2
 ```
 
+Using in Docker Compose:
+
+```yaml
+version: '3.8'
+services:
+  hf-model-downloader:
+    image: amikos/hf-model-downloader
+    args: sentence-transformers/all-MiniLM-L6-v2
+    volumes:
+      - ./models:/models
+    environment:
+      - HF_TOKEN=your_huggingface_token
+```
+
 ## Building
 
 ```bash
